@@ -51,9 +51,13 @@
         </androidx.appcompat.widget.Toolbar>
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/my_tab"
+
             android:background="#41ead4"
             app:tabTextAppearance="@style/Theme.CustomStyle"
             app:tabIndicatorColor="#ffffff"
+            android:layout_gravity="center"
+            app:tabGravity="fill"
+
             app:tabTextColor="#ffffff"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

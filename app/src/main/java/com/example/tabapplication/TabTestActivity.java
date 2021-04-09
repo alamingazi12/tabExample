@@ -8,10 +8,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 import com.google.android.material.tabs.TabLayout;
@@ -19,6 +18,7 @@ public class TabTestActivity extends AppCompatActivity {
     Toolbar toolbar;
     TabLayout my_tablayout;
     ViewPager view_pager;
+    @SuppressLint("WrongConstant")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +61,8 @@ public class TabTestActivity extends AppCompatActivity {
         return true;
     }
 
+
+
     public class SectionPagerAdepter extends FragmentPagerAdapter {
         public SectionPagerAdepter(@NonNull FragmentManager fm) {
             super(fm);
@@ -81,14 +83,14 @@ public class TabTestActivity extends AppCompatActivity {
                  break;
                  case 2:
                      fragment=new Frag3();
-                 break;
+
              }
              return fragment;
         }
 
         @Override
         public int getCount() {
-            return 2;
+            return 3;
         }
 
         @Override
@@ -99,7 +101,7 @@ public class TabTestActivity extends AppCompatActivity {
                 case 1:
                     return "Received";
                 case 2:
-                    return "Fragment 3";
+                    return "Total";
             }
             return null;
         }

@@ -2,6 +2,7 @@ package com.example.tabapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -25,6 +26,8 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        Toolbar toolbar=findViewById(R.id.toolbars);
+        setSupportActionBar(toolbar);
         ViewPager viewPager = findViewById(R.id.view_pager2);
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(sectionsPagerAdapter);
@@ -33,29 +36,36 @@ public class MainActivity2 extends AppCompatActivity {
         Typeface tf=Typeface.createFromAsset(getAssets(),"fonts/Regular.ttf");
         TextView tv=new TextView(this);
         tv.setTypeface(tf);
-       // FloatingActionButton fab = findViewById(R.id.fab);
+
     }
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-       MenuInflater inflater=getMenuInflater();
-       inflater.inflate(R.menu.menu_item,menu);
+        getMenuInflater().inflate(R.menu.menu_item,menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-       switch (item.getItemId()){
-               case R.id.record:
-               Toast.makeText(MainActivity2.this,"record Call",Toast.LENGTH_LONG).show();
-               break;
-               case   R.id.download:
-               Toast.makeText(MainActivity2.this,"record Call",Toast.LENGTH_LONG).show();
-               break;
-               default:
-                   break;
-       }
-       return true;
+        switch (item.getItemId()) {
+            // action with ID action_refresh was selected
+            case R.id.record:
+                Toast.makeText(this, "Refresh selected", Toast.LENGTH_SHORT)
+                        .show();
+                break;
+            // action with ID action_settings was selected
+            case R.id.update:
+                Toast.makeText(this, "update selected", Toast.LENGTH_SHORT)
+                        .show();
+                break;
+            default:
+                break;
+        }
+
+        return true;
     }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
